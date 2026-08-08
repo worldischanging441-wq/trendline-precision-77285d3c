@@ -97,7 +97,7 @@ function Index() {
           </div>
 
           <div>
-            <p className="eyebrow">Premium Trading Education · Edition I</p>
+            <p className="eyebrow">Premium Trading Education · 2026 EDITION</p>
             <h1 className="mt-5 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
               Stop guessing the market.
               <br />
@@ -113,29 +113,26 @@ function Index() {
                 <div className="min-w-0">
                   <h3 className="text-2xl">The Trendline Precision Challenge</h3>
                   <p className="mt-3 text-sm text-muted-foreground">
-                    Read the book, complete the chart exercises, and work through the reader
-                    challenges at your own pace. The challenge is a structured study path — analyse,
-                    annotate, journal, review — so you can test the educational system with
-                    confidence before you risk anything real.
+                    Study the complete system for 30 days. Complete the exercises, apply the
+                    framework to your chart analysis. If you don't feel more structured and confident
+                    in reading price action, request a full refund. No questions asked.
                   </p>
                 </div>
                 <span className="shrink-0 rounded-full border border-gold/50 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
-                  Badge
+                  30 Days
                 </span>
               </div>
 
               <div className="hairline my-6" />
 
               <div className="flex items-start gap-3">
-                <ShieldCheck className="mt-0.5 size-6 shrink-0 text-gold" strokeWidth={1.5} />
+                <span className="mt-0.5 text-xl leading-none">🛡️</span>
                 <div className="min-w-0">
                   <p className="text-sm font-bold tracking-[0.16em] text-gold uppercase">
-                    Satisfaction Guarantee
+                    30-Day Satisfaction Guarantee
                   </p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    [Final guarantee wording to be inserted here.] Our guarantee covers your
-                    satisfaction with the educational material only — it is not a promise of trading
-                    profits or performance of any kind.
+                    Built for serious learners. Educational content, not trading performance.
                   </p>
                 </div>
               </div>
