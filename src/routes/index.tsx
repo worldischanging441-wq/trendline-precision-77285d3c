@@ -321,7 +321,7 @@ function Index() {
               Reader charts &amp; study progress
             </h3>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {Array.from({ length: 8 }).map((_, i) => (
+              {Array.from({ length: 4 }).map((_, i) => (
                 <figure
                   key={i}
                   className="panel relative aspect-4/3 overflow-hidden text-gold/70"
