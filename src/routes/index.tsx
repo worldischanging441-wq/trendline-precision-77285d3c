@@ -115,7 +115,7 @@ function Index() {
                   <p className="mt-3 text-sm text-muted-foreground">
                     Study the complete system for 30 days. Complete the exercises, apply the
                     framework to your chart analysis. If you don't feel more structured and confident
-                    in reading price action, request a full refund. No questions asked.
+                    in reading price action, request a <strong className="text-gold">full refund</strong>. No questions asked.
                   </p>
                 </div>
                 <span className="shrink-0 rounded-full border border-gold/50 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
