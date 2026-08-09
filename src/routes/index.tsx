@@ -34,7 +34,7 @@ const readerCases: { title: string; note: string; shots: Shot[] }[] = [
   {
     title: "Reader 02",
     note: "Daily P&L calendar shared after study",
-    shots: [{ src: /reader-02.jpg, alt: "Reader daily profit and loss calendar" }],
+    shots: [{ src: "/reader-02.jpg", alt: "Reader daily profit and loss calendar" }],
   },
   {
     title: "Reader 03",
@@ -45,8 +45,8 @@ const readerCases: { title: string; note: string; shots: Shot[] }[] = [
     title: "Reader 04",
     note: "Trade history before and after structured entries",
     shots: [
-      { label: "Before", src: /reader-04-before.jpg, alt: "Reader trade history before applying the system" },
-      { label: "After", src: /reader-04-after.jpg, alt: "Reader trade history after applying the system" },
+      { label: "Before", src: "/reader-04-before.jpg", alt: "Reader trade history before applying the system" },
+      { label: "After", src:  "/reader-04-after.jpg", alt: "Reader trade history after applying the system" },
     ],
   },
 ];
