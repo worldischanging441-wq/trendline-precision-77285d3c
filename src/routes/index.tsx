@@ -17,6 +17,43 @@ import toolkit from "@/assets/toolkit.png";
 import bookFloat from "@/assets/book-float.png";
 import { ChartBackdrop } from "@/components/site/Chart";
 import { chapters, faqs, testimonials } from "@/components/site/data";
+import shot1 from "@/assets/student-6032595525506371660.jpg.asset.json";
+import shot2 from "@/assets/student-image.png.asset.json";
+import shot3 from "@/assets/student-6032595525506371666.jpg.asset.json";
+import shot4 from "@/assets/student-6032595525506371665.jpg.asset.json";
+import shot5 from "@/assets/student-6032595525506371663.jpg.asset.json";
+import shot6 from "@/assets/student-6032595525506371662.jpg.asset.json";
+
+type Shot = { label?: string; src: string; alt: string };
+
+const readerCases: { title: string; note: string; shots: Shot[] }[] = [
+  {
+    title: "Reader 01",
+    note: "Journal calendar before and after applying the process",
+    shots: [
+      { label: "Before", src: shot1.url, alt: "Reader trading journal calendar before applying the system" },
+      { label: "After", src: shot2.url, alt: "Reader trading journal calendar after applying the system" },
+    ],
+  },
+  {
+    title: "Reader 02",
+    note: "Daily P&L calendar shared after study",
+    shots: [{ src: shot3.url, alt: "Reader daily profit and loss calendar" }],
+  },
+  {
+    title: "Reader 03",
+    note: "Trade history reviewed with the checklist",
+    shots: [{ src: shot4.url, alt: "Reader trade history positions list" }],
+  },
+  {
+    title: "Reader 04",
+    note: "Trade history before and after structured entries",
+    shots: [
+      { label: "Before", src: shot5.url, alt: "Reader trade history before applying the system" },
+      { label: "After", src: shot6.url, alt: "Reader trade history after applying the system" },
+    ],
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -320,17 +357,39 @@ function Index() {
             <h3 className="mt-3 text-center text-2xl sm:text-3xl">
               Reader charts &amp; study progress
             </h3>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <figure
-                  key={i}
-                  className="panel relative aspect-4/3 overflow-hidden text-gold/70"
-                >
-                  <div className="absolute inset-0 grid-chart opacity-60" />
-                  <ChartBackdrop className="absolute inset-0 h-full w-full p-3" />
-                  <figcaption className="absolute bottom-3 left-4 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-                    Reader annotation {String(i + 1).padStart(2, "0")}
-                  </figcaption>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {readerCases.map((c) => (
+                <figure key={c.title} className="panel p-4 sm:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="eyebrow">{c.title}</p>
+                    {c.shots.length > 1 ? (
+                      <span className="shrink-0 rounded-full border border-gold/40 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
+                        Before / After
+                      </span>
+                    ) : null}
+                  </div>
+                  <div
+                    className={`mt-4 grid gap-3 ${c.shots.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
+                  >
+                    {c.shots.map((s) => (
+                      <div key={s.src} className="min-w-0">
+                        {s.label ? (
+                          <p className="mb-2 text-[10px] tracking-[0.22em] text-muted-foreground uppercase">
+                            {s.label}
+                          </p>
+                        ) : null}
+                        <div className="overflow-hidden rounded-md border border-border bg-secondary/40">
+                          <img
+                            src={s.src}
+                            alt={s.alt}
+                            loading="lazy"
+                            className="h-64 w-full object-cover object-top sm:h-72"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <figcaption className="mt-4 text-xs text-muted-foreground">{c.note}</figcaption>
                 </figure>
               ))}
             </div>
