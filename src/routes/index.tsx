@@ -18,11 +18,11 @@ import bookFloat from "@/assets/book-float.png";
 import { ChartBackdrop } from "@/components/site/Chart";
 import { chapters, faqs, testimonials } from "@/components/site/data";
 import shot1 from "@/assets/reader-01-before.jpg";
-reader-01-after.jpg
-reader-02.jpg
-reader-03.jpg
-reader-04-before.jpg
-reader-04-after.jpg
+import shot2 from "@/assets/reader-01-after.jpg";
+import shot3 from "@/assets/reader-02.jpg";
+import shot4 from "@/assets/reader-03.jpg";
+import shot5 from "@/assets/reader-04-before.jpg";
+import shot6 from "@/assets/reader-04-after.jpg";
 
 type Shot = { label?: string; src: string; alt: string };
 
