@@ -17,12 +17,7 @@ import toolkit from "@/assets/toolkit.png";
 import bookFloat from "@/assets/book-float.png";
 import { ChartBackdrop } from "@/components/site/Chart";
 import { chapters, faqs, testimonials } from "@/components/site/data";
-import shot1 from "@/assets/reader-01-before.jpg";
-import shot2 from "@/assets/reader-01-after.jpg";
-import shot3 from "@/assets/reader-02.jpg";
-import shot4 from "@/assets/reader-03.jpg";
-import shot5 from "@/assets/reader-04-before.jpg";
-import shot6 from "@/assets/reader-04-after.jpg";
+
 
 type Shot = { label?: string; src: string; alt: string };
 
@@ -31,8 +26,9 @@ const readerCases: { title: string; note: string; shots: Shot[] }[] = [
     title: "Reader 01",
     note: "Journal calendar before and after applying the process",
     shots: [
-      { label: "Before", src: shot1.url, alt: "Reader trading journal calendar before applying the system" },
-      { label: "After", src: shot2.url, alt: "Reader trading journal calendar after applying the system" },
+      { label: "Before", src: "/reader-01-before.jpg", alt: "Reader trading journal calendar before applying the system" },
+{ label: "After", src: "/reader-01-after.jpg", alt: "Reader trading journal calendar after applying the system" },
+    
     ],
   },
   {
