@@ -17,7 +17,7 @@ import toolkit from "@/assets/toolkit.png";
 import bookFloat from "@/assets/book-float.png";
 import { ChartBackdrop } from "@/components/site/Chart";
 import { chapters, faqs, testimonials } from "@/components/site/data";
-import shot1 from "@/assets/student-6032595525506371660.jpg.asset.json";
+import shot1 from "@/assets/reader-01-before.jpg";
 import shot2 from "@/assets/student-image.png.asset.json";
 import shot3 from "@/assets/student-6032595525506371666.jpg.asset.json";
 import shot4 from "@/assets/student-6032595525506371665.jpg.asset.json";
