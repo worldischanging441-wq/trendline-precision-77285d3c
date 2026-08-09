@@ -22,7 +22,7 @@ reader-01-after.jpg
 reader-02.jpg
 reader-03.jpg
 reader-04-before.jpg
-import shot6 from "@/assets/student-6032595525506371662.jpg.asset.json";
+reader-04-after.jpg
 
 type Shot = { label?: string; src: string; alt: string };
 
