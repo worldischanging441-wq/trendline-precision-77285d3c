@@ -121,8 +121,8 @@ function Index() {
           <div className="relative">
             <div className="absolute inset-6 -z-10 rounded-full bg-gold/10 blur-3xl" />
             <img
-              src={heroBooks}
-              alt="Trendline Precision hardcover and paperback books with tablet and phone editions"
+              src={heroBook}
+              alt="Trendline Precision 2026 hardcover edition standing on a dark navy surface with gold foil typography and candlestick trendline detail"
               width={1408}
               height={1104}
               className="w-full drop-shadow-2xl"
