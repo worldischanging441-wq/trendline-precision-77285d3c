@@ -328,31 +328,8 @@ function Index() {
             title="Student Stories"
             lead="Genuine reader feedback on chart analysis and learning experience."
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((t) => (
-              <article key={t.name} className="panel p-7">
-                <div className="flex min-w-0 items-center gap-4">
-                  <span className="grid size-12 shrink-0 place-items-center rounded-full border border-gold/40 bg-secondary font-display text-lg text-gold">
-                    {t.initials}
-                  </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold">{t.name}</p>
-                    <p className="truncate text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                      {t.country}
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">“{t.quote}”</p>
-                <div className="hairline my-5" />
-                <p className="flex items-start gap-2 text-xs text-gold">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
-                  {t.detail}
-                </p>
-              </article>
-            ))}
-          </div>
 
-          <div className="mt-16">
+          <div className="mt-14">
             <p className="eyebrow text-center">Shared With Permission</p>
             <h3 className="mt-3 text-center text-2xl sm:text-3xl">
               Reader charts &amp; study progress
@@ -397,6 +374,30 @@ function Index() {
               Individual trading outcomes vary. Testimonials and submitted charts reflect personal
               experiences and are not a promise of future results.
             </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <article key={t.name} className="panel p-7">
+                <div className="flex min-w-0 items-center gap-4">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full border border-gold/40 bg-secondary font-display text-lg text-gold">
+                    {t.initials}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold">{t.name}</p>
+                    <p className="truncate text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                      {t.country}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">“{t.quote}”</p>
+                <div className="hairline my-5" />
+                <p className="flex items-start gap-2 text-xs text-gold">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
+                  {t.detail}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
