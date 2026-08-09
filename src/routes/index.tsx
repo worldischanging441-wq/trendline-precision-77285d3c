@@ -11,7 +11,7 @@ import {
   Target,
 } from "lucide-react";
 
-import heroBooks from "@/assets/hero-books.png";
+import heroBook from "@/assets/hero-book-resonating.png";
 import insideSpread from "@/assets/inside-spread.jpg";
 import toolkit from "@/assets/toolkit.png";
 import bookFloat from "@/assets/book-float.png";
