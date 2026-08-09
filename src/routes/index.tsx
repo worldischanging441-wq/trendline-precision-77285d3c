@@ -21,7 +21,7 @@ import shot1 from "@/assets/reader-01-before.jpg";
 reader-01-after.jpg
 reader-02.jpg
 reader-03.jpg
-import shot5 from "@/assets/student-6032595525506371663.jpg.asset.json";
+reader-04-before.jpg
 import shot6 from "@/assets/student-6032595525506371662.jpg.asset.json";
 
 type Shot = { label?: string; src: string; alt: string };
