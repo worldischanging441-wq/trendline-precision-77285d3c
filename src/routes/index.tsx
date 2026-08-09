@@ -109,7 +109,7 @@ function Index() {
               Trendline <span className="text-gold-gradient">Precision</span>
             </span>
           </div>
-          <a href="#buy" className="btn-gold !px-5 !py-3">
+          <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold !px-5 !py-3">
             Buy — $55
           </a>
         </div>
@@ -176,7 +176,7 @@ function Index() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3">
-              <a href="#buy" className="btn-gold w-full">
+              <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold w-full">
                 Buy the book
               </a>
               <a href="#stories" className="btn-outline-lux w-full">
@@ -515,7 +515,7 @@ function Index() {
               Complete digital edition · 18 chapters · Toolkit included ·{" "}
               <span className="text-foreground">$55 one-time</span>
             </p>
-            <a href="#buy" className="btn-gold mt-8 w-full sm:w-auto">
+            <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold mt-8 w-full sm:w-auto">
               Get Trendline Precision
             </a>
           </div>
@@ -544,7 +544,7 @@ function Index() {
               <a href="#stories" className="hover:text-gold">
                 Stories
               </a>
-              <a href="#buy" className="hover:text-gold">
+              <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="hover:text-gold">
                 Buy
               </a>
             </nav>
