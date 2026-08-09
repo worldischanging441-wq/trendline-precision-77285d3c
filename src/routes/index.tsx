@@ -20,7 +20,7 @@ import { chapters, faqs, testimonials } from "@/components/site/data";
 import shot1 from "@/assets/reader-01-before.jpg";
 reader-01-after.jpg
 reader-02.jpg
-import shot4 from "@/assets/student-6032595525506371665.jpg.asset.json";
+reader-03.jpg
 import shot5 from "@/assets/student-6032595525506371663.jpg.asset.json";
 import shot6 from "@/assets/student-6032595525506371662.jpg.asset.json";
 
