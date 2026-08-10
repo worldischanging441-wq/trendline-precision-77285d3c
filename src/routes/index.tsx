@@ -485,7 +485,7 @@ function Index() {
         <SectionHeading
           eyebrow="Everything Included"
           title="The Complete Trader's Toolkit"
-          lead="Six pieces of material designed as one system — presented as a boxed premium set."
+          lead="Five bonus resources designed to help you practise, review, and apply the Trendline Precision system."
         />
         <div className="mt-12">
           <img
@@ -499,12 +499,31 @@ function Index() {
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { icon: BookOpen, t: "The Book", b: "18 chapters, fully annotated chart examples." },
-            { icon: LineChart, t: "The Pattern Handbook", b: "Reference sheets for structure and patterns." },
-            { icon: NotebookPen, t: "Trading Journal", b: "Templates for logging and reviewing decisions." },
-            { icon: Target, t: "Practice Plan", b: "A weekly drill schedule for chart study." },
-            { icon: ClipboardCheck, t: "Checklist", b: "Pre-trade criteria you confirm before acting." },
-            { icon: ShieldCheck, t: "Common Mistakes Guide", b: "The errors that quietly undo good analysis." },
+            {
+    icon: ClipboardCheck,
+    t: "The Trendline Trader's Checklist",
+    b: "A practical checklist to use before analysing and executing a trendline setup.",
+  },
+  {
+    icon: Target,
+    t: "30-Day Trendline Trading Practice Plan",
+    b: "A structured 30-day plan for building consistency through focused chart practice.",
+  },
+  {
+    icon: ShieldCheck,
+    t: "The 25 Most Common Trendline Trading Mistakes",
+    b: "A reference guide to the mistakes that can weaken otherwise good trendline analysis.",
+  },
+  {
+    icon: NotebookPen,
+    t: "Trendline Trading Journal",
+    b: "A dedicated journal for recording, reviewing and improving your trendline trades.",
+  },
+  {
+    icon: BookOpen,
+    t: "A Letter to the Future Trader",
+    b: "A final note to help you carry the lessons of the book into your trading journey.",
+  },
           ].map((c) => (
             <article key={c.t} className="panel flex items-start gap-4 p-6">
               <c.icon className="mt-1 size-5 shrink-0 text-gold" strokeWidth={1.5} />
