@@ -7,9 +7,18 @@ import {
   LineChart,
   NotebookPen,
   ShieldCheck,
+  Sparkles,
   Star,
   Target,
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 import heroBooks from "@/assets/hero-books.png";
 import insideSpread from "@/assets/inside-spread.jpg";
