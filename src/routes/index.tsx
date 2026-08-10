@@ -7,9 +7,18 @@ import {
   LineChart,
   NotebookPen,
   ShieldCheck,
+  Sparkles,
   Star,
   Target,
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 import heroBooks from "@/assets/hero-books.png";
 import insideSpread from "@/assets/inside-spread.jpg";
@@ -145,35 +154,104 @@ function Index() {
               complete professional trading system.
             </p>
 
-            <div className="panel-gold mt-9 p-6 sm:p-8">
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
-                <div className="min-w-0">
-                  <h3 className="text-2xl">The Trendline Precision Challenge</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    Study the complete system for 30 days. Complete the exercises, apply the
-                    framework to your chart analysis. If you don't feel more structured and confident
-                    in reading price action, request a <strong className="text-gold">full refund</strong>. No questions asked.
-                  </p>
+            <Dialog>
+              <div className="panel-gold mt-9 p-6 sm:p-8">
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                  <div className="min-w-0">
+                    <h3 className="text-2xl">The Trendline Precision Challenge</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">
+                      Study the complete system for 30 days. Complete the exercises, apply the
+                      framework to your chart analysis. If you don't feel more structured and confident
+                      in reading price action, request a <strong className="text-gold">full refund</strong>. No questions asked.
+                    </p>
+                  </div>
+                  <span className="shrink-0 rounded-full border border-gold/50 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
+                    30 Days
+                  </span>
                 </div>
-                <span className="shrink-0 rounded-full border border-gold/50 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
-                  30 Days
-                </span>
+
+                <div className="hairline my-6" />
+
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 text-xl leading-none">🛡️</span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-bold tracking-[0.16em] text-gold uppercase">
+                        30-Day Satisfaction Guarantee
+                      </p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Built for serious learners. Educational content, not trading performance.
+                      </p>
+                    </div>
+                  </div>
+                  <DialogTrigger asChild>
+                    <button className="btn-outline-lux shrink-0 !px-4 !py-2.5 text-[10px]">
+                      <Sparkles className="size-3.5" strokeWidth={1.5} />
+                      How the challenge works
+                    </button>
+                  </DialogTrigger>
+                </div>
               </div>
 
-              <div className="hairline my-6" />
+              <DialogContent className="max-w-xl border-gold/30 bg-ink">
+                <DialogHeader>
+                  <DialogTitle className="font-display text-2xl font-light tracking-normal">
+                    The Trendline Precision Challenge
+                  </DialogTitle>
+                  <DialogDescription className="text-muted-foreground">
+                    A 30-day structured commitment to reading price action with discipline.
+                  </DialogDescription>
+                </DialogHeader>
 
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-xl leading-none">🛡️</span>
-                <div className="min-w-0">
-                  <p className="text-sm font-bold tracking-[0.16em] text-gold uppercase">
-                    30-Day Satisfaction Guarantee
+                <div className="space-y-5 py-2">
+                  <p className="text-sm text-muted-foreground">
+                    The challenge is simple: study the complete Trendline Precision system for 30 days,
+                    work through the exercises, and apply the framework to your own chart analysis.
                   </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Built for serious learners. Educational content, not trading performance.
+
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {[
+                      { n: "01", t: "Read", b: "Work through all 18 chapters in order." },
+                      { n: "02", t: "Practice", b: "Complete every exercise and chart drill." },
+                      { n: "03", t: "Apply", b: "Use the checklist during your own analysis." },
+                    ].map((s) => (
+                      <div key={s.n} className="panel p-4 text-center">
+                        <span className="font-display text-2xl text-gold">{s.n}</span>
+                        <p className="mt-2 text-sm font-semibold">{s.t}</p>
+                        <p className="mt-1 text-xs text-muted-foreground">{s.b}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="panel-gold p-5">
+                    <div className="flex items-start gap-3">
+                      <span className="text-xl leading-none">🛡️</span>
+                      <div>
+                        <p className="text-sm font-bold tracking-[0.16em] text-gold uppercase">
+                          30-Day Satisfaction Guarantee
+                        </p>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          If you don't feel more structured and confident reading price action, request
+                          a <strong className="text-gold">full refund</strong>. No questions asked.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground">
+                    This is an educational satisfaction guarantee. It covers the quality of the
+                    learning experience, not trading profits or losses.
                   </p>
                 </div>
-              </div>
-            </div>
+
+                <a
+                  href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01"
+                  className="btn-gold w-full"
+                >
+                  Accept the challenge — Buy the book
+                </a>
+              </DialogContent>
+            </Dialog>
 
             <div className="mt-8 flex flex-col gap-3">
               <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold w-full">
