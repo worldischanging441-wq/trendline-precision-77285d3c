@@ -352,18 +352,18 @@ function Index() {
             {[
               {
                 n: "Chapter 05",
-                t: "Drawing Trendlines With Precision",
-                b: "Anchor points, slope validation and the difference between a line that holds and a line you forced.",
+                t: "Valid vs Invalid Trendlines",
+                b: "A good trendline should answer one simple question: "Does this line help me understand the market better?",
               },
               {
                 n: "Chapter 07",
-                t: "Support & Resistance Zones",
-                b: "Zones over lines, reaction quality, and how to grade a level before price arrives.",
+                t: "Understanding Trendline Breaks",
+                b: "A trendline break is a warning. It is not a confirmation. A break does not automatically mean the trend has ended.",
               },
               {
                 n: "Chapter 13",
-                t: "Position Sizing & Risk",
-                b: "Fixed fractional sizing, invalidation-first stops, and worked examples with exercises.",
+                t: "Multiple Timeframe Analysis",
+                b: "When these two answers agree, your trading decisions become more structured.",
               },
             ].map((c) => (
               <article key={c.n} className="panel p-7">
