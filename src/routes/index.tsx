@@ -26,12 +26,12 @@ import toolkit from "@/assets/toolkit.png";
 import bookFloat from "@/assets/book-float.png";
 import { ChartBackdrop } from "@/components/site/Chart";
 import { chapters, faqs, testimonials } from "@/components/site/data";
-import shot1 from "@/assets/student-6032595525506371660.jpg.asset.json";
-import shot2 from "@/assets/student-image.png.asset.json";
-import shot3 from "@/assets/student-6032595525506371666.jpg.asset.json";
-import shot4 from "@/assets/student-6032595525506371665.jpg.asset.json";
-import shot5 from "@/assets/student-6032595525506371663.jpg.asset.json";
-import shot6 from "@/assets/student-6032595525506371662.jpg.asset.json";
+import shot1 from "/reader-01-before.jpg";
+import shot2 from "/reader-01-after.jpg";
+import shot3 from "/reader-02.jpg";
+import shot4 from "/reader-03.jpg";
+import shot5 from "/reader-04-before.jpg";
+import shot6 from "/reader-04-after.jpg";
 
 type Shot = { label?: string; src: string; alt: string };
 
@@ -40,26 +40,26 @@ const readerCases: { title: string; note: string; shots: Shot[] }[] = [
     title: "Reader 01",
     note: "Journal calendar before and after applying the process",
     shots: [
-      { label: "Before", src: shot1.url, alt: "Reader trading journal calendar before applying the system" },
-      { label: "After", src: shot2.url, alt: "Reader trading journal calendar after applying the system" },
+      { label: "Before", src: shot1, alt: "Reader trading journal calendar before applying the system" },
+      { label: "After", src: shot2, alt: "Reader trading journal calendar after applying the system" },
     ],
   },
   {
     title: "Reader 02",
     note: "Daily P&L calendar shared after study",
-    shots: [{ src: shot3.url, alt: "Reader daily profit and loss calendar" }],
+    shots: [{ src: shot3, alt: "Reader daily profit and loss calendar" }],
   },
   {
     title: "Reader 03",
     note: "Trade history reviewed with the checklist",
-    shots: [{ src: shot4.url, alt: "Reader trade history positions list" }],
+    shots: [{ src: shot4, alt: "Reader trade history positions list" }],
   },
   {
     title: "Reader 04",
     note: "Trade history before and after structured entries",
     shots: [
-      { label: "Before", src: shot5.url, alt: "Reader trade history before applying the system" },
-      { label: "After", src: shot6.url, alt: "Reader trade history after applying the system" },
+      { label: "Before", src: shot5, alt: "Reader trade history before applying the system" },
+      { label: "After", src: shot6, alt: "Reader trade history after applying the system" },
     ],
   },
 ];
