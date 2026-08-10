@@ -17,6 +17,43 @@ import toolkit from "@/assets/toolkit.png";
 import bookFloat from "@/assets/book-float.png";
 import { ChartBackdrop } from "@/components/site/Chart";
 import { chapters, faqs, testimonials } from "@/components/site/data";
+import shot1 from "@/assets/student-6032595525506371660.jpg.asset.json";
+import shot2 from "@/assets/student-image.png.asset.json";
+import shot3 from "@/assets/student-6032595525506371666.jpg.asset.json";
+import shot4 from "@/assets/student-6032595525506371665.jpg.asset.json";
+import shot5 from "@/assets/student-6032595525506371663.jpg.asset.json";
+import shot6 from "@/assets/student-6032595525506371662.jpg.asset.json";
+
+type Shot = { label?: string; src: string; alt: string };
+
+const readerCases: { title: string; note: string; shots: Shot[] }[] = [
+  {
+    title: "Reader 01",
+    note: "Journal calendar before and after applying the process",
+    shots: [
+      { label: "Before", src: shot1.url, alt: "Reader trading journal calendar before applying the system" },
+      { label: "After", src: shot2.url, alt: "Reader trading journal calendar after applying the system" },
+    ],
+  },
+  {
+    title: "Reader 02",
+    note: "Daily P&L calendar shared after study",
+    shots: [{ src: shot3.url, alt: "Reader daily profit and loss calendar" }],
+  },
+  {
+    title: "Reader 03",
+    note: "Trade history reviewed with the checklist",
+    shots: [{ src: shot4.url, alt: "Reader trade history positions list" }],
+  },
+  {
+    title: "Reader 04",
+    note: "Trade history before and after structured entries",
+    shots: [
+      { label: "Before", src: shot5.url, alt: "Reader trade history before applying the system" },
+      { label: "After", src: shot6.url, alt: "Reader trade history after applying the system" },
+    ],
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,7 +109,7 @@ function Index() {
               Trendline <span className="text-gold-gradient">Precision</span>
             </span>
           </div>
-          <a href="#buy" className="btn-gold !px-5 !py-3">
+          <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold !px-5 !py-3">
             Buy — $55
           </a>
         </div>
@@ -97,7 +134,7 @@ function Index() {
           </div>
 
           <div>
-            <p className="eyebrow">Premium Trading Education · Edition I</p>
+            <p className="eyebrow">Premium Trading Education · 2026 EDITION</p>
             <h1 className="mt-5 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
               Stop guessing the market.
               <br />
@@ -113,36 +150,33 @@ function Index() {
                 <div className="min-w-0">
                   <h3 className="text-2xl">The Trendline Precision Challenge</h3>
                   <p className="mt-3 text-sm text-muted-foreground">
-                    Read the book, complete the chart exercises, and work through the reader
-                    challenges at your own pace. The challenge is a structured study path — analyse,
-                    annotate, journal, review — so you can test the educational system with
-                    confidence before you risk anything real.
+                    Study the complete system for 30 days. Complete the exercises, apply the
+                    framework to your chart analysis. If you don't feel more structured and confident
+                    in reading price action, request a <strong className="text-gold">full refund</strong>. No questions asked.
                   </p>
                 </div>
                 <span className="shrink-0 rounded-full border border-gold/50 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
-                  Badge
+                  30 Days
                 </span>
               </div>
 
               <div className="hairline my-6" />
 
               <div className="flex items-start gap-3">
-                <ShieldCheck className="mt-0.5 size-6 shrink-0 text-gold" strokeWidth={1.5} />
+                <span className="mt-0.5 text-xl leading-none">🛡️</span>
                 <div className="min-w-0">
                   <p className="text-sm font-bold tracking-[0.16em] text-gold uppercase">
-                    Satisfaction Guarantee
+                    30-Day Satisfaction Guarantee
                   </p>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    [Final guarantee wording to be inserted here.] Our guarantee covers your
-                    satisfaction with the educational material only — it is not a promise of trading
-                    profits or performance of any kind.
+                    Built for serious learners. Educational content, not trading performance.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 flex flex-col gap-3">
-              <a href="#buy" className="btn-gold w-full">
+              <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold w-full">
                 Buy the book
               </a>
               <a href="#stories" className="btn-outline-lux w-full">
@@ -294,7 +328,55 @@ function Index() {
             title="Student Stories"
             lead="Genuine reader feedback on chart analysis and learning experience."
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+          <div className="mt-14">
+            <p className="eyebrow text-center">Shared With Permission</p>
+            <h3 className="mt-3 text-center text-2xl sm:text-3xl">
+              Reader charts &amp; study progress
+            </h3>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {readerCases.map((c) => (
+                <figure key={c.title} className="panel p-4 sm:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="eyebrow">{c.title}</p>
+                    {c.shots.length > 1 ? (
+                      <span className="shrink-0 rounded-full border border-gold/40 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
+                        Before / After
+                      </span>
+                    ) : null}
+                  </div>
+                  <div
+                    className={`mt-4 grid gap-3 ${c.shots.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
+                  >
+                    {c.shots.map((s) => (
+                      <div key={s.src} className="min-w-0">
+                        {s.label ? (
+                          <p className="mb-2 text-[10px] tracking-[0.22em] text-muted-foreground uppercase">
+                            {s.label}
+                          </p>
+                        ) : null}
+                        <div className="overflow-hidden rounded-md border border-border bg-secondary/40">
+                          <img
+                            src={s.src}
+                            alt={s.alt}
+                            loading="lazy"
+                            className="h-64 w-full object-cover object-top sm:h-72"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <figcaption className="mt-4 text-xs text-muted-foreground">{c.note}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
+              Individual trading outcomes vary. Testimonials and submitted charts reflect personal
+              experiences and are not a promise of future results.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t) => (
               <article key={t.name} className="panel p-7">
                 <div className="flex min-w-0 items-center gap-4">
@@ -316,31 +398,6 @@ function Index() {
                 </p>
               </article>
             ))}
-          </div>
-
-          <div className="mt-16">
-            <p className="eyebrow text-center">Shared With Permission</p>
-            <h3 className="mt-3 text-center text-2xl sm:text-3xl">
-              Reader charts &amp; study progress
-            </h3>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <figure
-                  key={i}
-                  className="panel relative aspect-4/3 overflow-hidden text-gold/70"
-                >
-                  <div className="absolute inset-0 grid-chart opacity-60" />
-                  <ChartBackdrop className="absolute inset-0 h-full w-full p-3" />
-                  <figcaption className="absolute bottom-3 left-4 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-                    Reader annotation {String(i + 1).padStart(2, "0")}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
-              Individual trading outcomes vary. Testimonials and submitted charts reflect personal
-              experiences and are not a promise of future results.
-            </p>
           </div>
         </div>
       </section>
@@ -458,7 +515,7 @@ function Index() {
               Complete digital edition · 18 chapters · Toolkit included ·{" "}
               <span className="text-foreground">$55 one-time</span>
             </p>
-            <a href="#buy" className="btn-gold mt-8 w-full sm:w-auto">
+            <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="btn-gold mt-8 w-full sm:w-auto">
               Get Trendline Precision
             </a>
           </div>
@@ -487,7 +544,7 @@ function Index() {
               <a href="#stories" className="hover:text-gold">
                 Stories
               </a>
-              <a href="#buy" className="hover:text-gold">
+              <a href="https://buy.stripe.com/eVq6oA2hHfvH8Yjeo1cZa01" className="hover:text-gold">
                 Buy
               </a>
             </nav>
