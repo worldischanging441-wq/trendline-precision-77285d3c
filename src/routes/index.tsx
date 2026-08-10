@@ -353,7 +353,7 @@ function Index() {
               {
                 n: "Chapter 05",
                 t: "Valid vs Invalid Trendlines",
-                b: "A good trendline should answer one simple question: "Does this line help me understand the market better?",
+                b: "A good trendline should answer one simple question: Does this line help me understand the market better?",
               },
               {
                 n: "Chapter 07",
