@@ -1,391 +1,503 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import * as Icons from "lucide-react";
-import { ArrowRight, Check, ShieldCheck, Sparkles } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Reveal } from "@/components/site/Reveal";
-import { WorkflowVisual } from "@/components/site/WorkflowVisual";
-import { RoiCalculator } from "@/components/site/RoiCalculator";
-import {
-  services,
-  steps,
-  industries,
-  plans,
-  caseStudies,
-  techStack,
-  trustPillars,
-  faqs,
-} from "@/components/site/content";
+  BookOpen,
+  CheckCircle2,
+  ClipboardCheck,
+  Compass,
+  LineChart,
+  NotebookPen,
+  ShieldCheck,
+  Star,
+  Target,
+} from "lucide-react";
 
-const title = "AI Operations & Automation Agency for US Businesses | Northlane AI";
-const description =
-  "We design, build and manage AI-powered workflows that help businesses save time, respond faster and operate more efficiently. Book a free automation audit.";
+import heroBooks from "@/assets/hero-books.png";
+import insideSpread from "@/assets/inside-spread.jpg";
+import toolkit from "@/assets/toolkit.png";
+import bookFloat from "@/assets/book-float.png";
+import { ChartBackdrop } from "@/components/site/Chart";
+import { chapters, faqs, testimonials } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
+      { title: "Trendline Precision — Professional Price Action Trading Book" },
+      {
+        name: "description",
+        content:
+          "Master price action, trendlines, market structure and disciplined execution with one complete professional trading system. 18 chapters, $55.",
+      },
+      { property: "og:title", content: "Trendline Precision — Read The Market, Don't Guess It" },
+      {
+        property: "og:description",
+        content:
+          "A premium 18-chapter trading education book on trendlines, market structure, risk and process. $55.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: HomePage,
+  component: Index,
 });
 
-function Icon({ name, className }: { name: string; className?: string }) {
-  const C = (Icons as unknown as Record<string, Icons.LucideIcon>)[name] ?? Icons.Sparkles;
-  return <C className={className} />;
-}
-
-function SectionHead({
+function SectionHeading({
   eyebrow,
-  heading,
-  body,
+  title,
+  lead,
+  center = true,
 }: {
   eyebrow: string;
-  heading: string;
-  body?: string;
+  title: string;
+  lead?: string;
+  center?: boolean;
 }) {
   return (
-    <Reveal className="mx-auto max-w-2xl text-center">
+    <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl sm:text-4xl">{heading}</h2>
-      {body && <p className="mt-4 text-base leading-relaxed text-muted-foreground">{body}</p>}
-    </Reveal>
+      <h2 className="mt-4 text-3xl leading-tight sm:text-4xl md:text-5xl">{title}</h2>
+      {lead ? <p className="mt-5 text-base text-muted-foreground">{lead}</p> : null}
+    </div>
   );
 }
 
-function HomePage() {
+function Index() {
   return (
-    <div>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[var(--gradient-hero)]" />
-        <div className="grid-faint pointer-events-none absolute inset-0 opacity-40" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-2">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold">
-              <Sparkles className="size-3.5 text-primary" />
-              Your AI-powered operations team
+    <main className="overflow-x-hidden">
+      {/* NAV */}
+      <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-8">
+          <div className="flex min-w-0 items-center gap-3">
+            <LineChart className="size-5 shrink-0 text-gold" strokeWidth={1.5} />
+            <span className="truncate font-display text-lg tracking-wide">
+              Trendline <span className="text-gold-gradient">Precision</span>
             </span>
-            <h1 className="mt-6 text-4xl leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
-              Turn repetitive work into{" "}
-              <span className="text-brand-gradient">automated operations.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              We design, build and manage AI-powered workflows that help businesses save time,
-              respond faster, and operate more efficiently.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-brand">
-                Book a Free Automation Audit
-                <ArrowRight className="size-4" />
-              </Link>
-              <Link to="/services" className="btn-ghost-lux">
-                See What We Automate
-              </Link>
-            </div>
-            <p className="mt-8 text-xs tracking-wide text-muted-foreground">
-              AI automation • AI agents • Workflow design • Integration • Ongoing optimization
-            </p>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <WorkflowVisual />
-          </Reveal>
+          </div>
+          <a href="#buy" className="btn-gold !px-5 !py-3">
+            Buy — $55
+          </a>
         </div>
-      </section>
+      </header>
 
-      {/* SERVICES */}
-      <section id="services" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-        <SectionHead
-          eyebrow="Services"
-          heading="What can we automate?"
-          body="We understand the process first, then decide where AI, APIs and traditional automation belong."
-        />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <Reveal key={s.slug} delay={i * 50} as="article" className="glass glass-hover p-6">
-              <span className="grid size-11 place-items-center rounded-xl bg-primary/12 ring-1 ring-primary/30">
-                <Icon name={s.icon} className="size-5 text-primary" />
-              </span>
-              <h3 className="mt-5 text-lg">{s.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{s.summary}</p>
-              <ul className="mt-5 flex flex-wrap gap-1.5">
-                {s.examples.map((e) => (
-                  <li
-                    key={e}
-                    className="rounded-md border border-border bg-secondary/60 px-2 py-1 text-[0.7rem] text-muted-foreground"
-                  >
-                    {e}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
+      {/* SECTION 1 — HERO */}
+      <section className="relative isolate">
+        <div className="absolute inset-0 -z-10 grid-chart opacity-70" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full text-gold opacity-25">
+          <ChartBackdrop className="h-full w-full" />
         </div>
-      </section>
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:py-24">
+          <div className="relative">
+            <div className="absolute inset-6 -z-10 rounded-full bg-gold/10 blur-3xl" />
+            <img
+              src={heroBooks}
+              alt="Trendline Precision hardcover and paperback books with tablet and phone editions"
+              width={1408}
+              height={1104}
+              className="w-full drop-shadow-2xl"
+            />
+          </div>
 
-      {/* HOW IT WORKS */}
-      <section className="border-y border-border bg-ink/70">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-          <SectionHead
-            eyebrow="How it works"
-            heading="A process built for operations, not experiments."
-          />
-          <ol className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s, i) => (
-              <Reveal key={s.number} delay={i * 70} as="li" className="glass glass-hover p-6">
-                <span className="font-display text-4xl font-semibold text-primary/35">
-                  {s.number}
-                </span>
-                <h3 className="mt-3 text-lg">{s.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section id="industries" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-        <SectionHead
-          eyebrow="Industries"
-          heading="Built for the way your business works."
-          body="Workflows differ by industry. We design around how your team already operates."
-        />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((ind, i) => (
-            <Reveal key={ind.name} delay={i * 40} className="glass glass-hover p-5">
-              <h3 className="text-base">{ind.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{ind.body}</p>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="glass mt-8 grid gap-8 border-primary/25 p-7 sm:p-10 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <p className="eyebrow">Featured</p>
-            <h3 className="mt-3 text-2xl sm:text-3xl">AI Operations for Healthcare Practices</h3>
-            <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">
-              Healthcare automation has to be designed differently. Every workflow we build for a
-              practice prioritizes security, patient privacy, appropriate human oversight and the
-              regulatory requirements that apply to your organization. We define what may be
-              automated and what stays with staff before anything goes live.
+            <p className="eyebrow">Premium Trading Education · Edition I</p>
+            <h1 className="mt-5 text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
+              Stop guessing the market.
+              <br />
+              <span className="text-gold-gradient">Start reading it.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+              Master price action, trendlines, market structure, and disciplined trading through one
+              complete professional trading system.
             </p>
-            <Link to="/healthcare" className="btn-brand mt-7">
-              Explore Healthcare Automation
-              <ArrowRight className="size-4" />
-            </Link>
-          </div>
-          <ul className="grid content-start gap-3">
-            {["Privacy-first design", "Human oversight on clinical touchpoints", "Access controls & audit trails", "Documented data handling"].map(
-              (item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <ShieldCheck className="mt-0.5 size-4 shrink-0 text-teal" />
-                  {item}
-                </li>
-              ),
-            )}
-          </ul>
-        </Reveal>
-      </section>
 
-      {/* PRICING */}
-      <section id="pricing" className="border-y border-border bg-ink/70">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-          <SectionHead
-            eyebrow="Pricing"
-            heading="Simple retainers, scoped to your workflows."
-          />
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {plans.map((p, i) => (
-              <Reveal
-                key={p.name}
-                delay={i * 60}
-                className={`glass glass-hover relative flex flex-col p-7 ${
-                  p.popular ? "border-primary/45 shadow-[var(--shadow-brand)]" : ""
-                }`}
-              >
-                {p.popular && (
-                  <span className="absolute -top-3 left-7 rounded-full bg-[var(--gradient-brand)] px-3 py-1 text-[0.7rem] font-bold text-ink">
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="text-xl">{p.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.for}</p>
-                <p className="mt-6 font-display text-4xl font-semibold">
-                  {p.price}
-                  <span className="text-base font-normal text-muted-foreground">{p.cadence}</span>
-                </p>
-                <ul className="mt-6 space-y-2.5">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                      <Check className="mt-0.5 size-4 shrink-0 text-teal" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 pt-2">
-                  <Link
-                    to="/contact"
-                    className={p.popular ? "btn-brand w-full" : "btn-ghost-lux w-full"}
-                  >
-                    {p.cta}
-                  </Link>
-                  <p className="mt-3 text-center text-xs text-muted-foreground">{p.offer}</p>
+            <div className="panel-gold mt-9 p-6 sm:p-8">
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                <div className="min-w-0">
+                  <h3 className="text-2xl">The Trendline Precision Challenge</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Read the book, complete the chart exercises, and work through the reader
+                    challenges at your own pace. The challenge is a structured study path — analyse,
+                    annotate, journal, review — so you can test the educational system with
+                    confidence before you risk anything real.
+                  </p>
                 </div>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mt-8 text-center text-xs text-muted-foreground">
-            Pricing depends on workflow complexity, integrations and usage.
-          </p>
-        </div>
-      </section>
-
-      {/* ROI */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-        <SectionHead
-          eyebrow="ROI"
-          heading="Don't buy AI. Buy better operations."
-          body="Estimate the operational value sitting inside your repetitive work today."
-        />
-        <div className="mt-12">
-          <RoiCalculator />
-        </div>
-      </section>
-
-      {/* CASE STUDIES */}
-      <section className="border-y border-border bg-ink/70">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-          <SectionHead
-            eyebrow="Examples"
-            heading="Illustrative automation scenarios."
-            body="The scenarios below are demonstration examples, not real client results."
-          />
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {caseStudies.map((c, i) => (
-              <Reveal key={c.industry} delay={i * 60} as="article" className="glass glass-hover p-7">
-                <span className="rounded-md border border-primary/30 bg-primary/10 px-2 py-1 text-[0.7rem] font-bold tracking-wide uppercase">
-                  Example
+                <span className="shrink-0 rounded-full border border-gold/50 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-gold uppercase">
+                  Badge
                 </span>
-                <h3 className="mt-4 text-lg">{c.industry}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  <span className="text-foreground/90">Problem:</span> {c.problem}
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  <span className="text-foreground/90">Solution:</span> {c.solution}
-                </p>
-                <dl className="mt-5 space-y-3 border-t border-border pt-5">
-                  {c.metrics.map((m) => (
-                    <div key={m.label} className="flex items-baseline justify-between gap-3">
-                      <dt className="text-xs text-muted-foreground">{m.label}</dt>
-                      <dd className="font-display text-base font-semibold text-brand-gradient">
-                        {m.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="mt-4 text-[0.7rem] text-muted-foreground">
-                  Illustrative figures for demonstration only.
-                </p>
-              </Reveal>
+              </div>
+
+              <div className="hairline my-6" />
+
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="mt-0.5 size-6 shrink-0 text-gold" strokeWidth={1.5} />
+                <div className="min-w-0">
+                  <p className="text-sm font-bold tracking-[0.16em] text-gold uppercase">
+                    Satisfaction Guarantee
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    [Final guarantee wording to be inserted here.] Our guarantee covers your
+                    satisfaction with the educational material only — it is not a promise of trading
+                    profits or performance of any kind.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3">
+              <a href="#buy" className="btn-gold w-full">
+                Buy the book
+              </a>
+              <a href="#stories" className="btn-outline-lux w-full">
+                See student results
+              </a>
+              <a href="#learn" className="btn-outline-lux w-full">
+                See what you'll learn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2 — TRUST BAR */}
+      <section className="border-y border-border bg-ink/60">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-5 py-6 text-center sm:px-8">
+          <span className="flex items-center gap-1 text-gold">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="size-4 fill-current" strokeWidth={0} />
+            ))}
+          </span>
+          {[
+            "Premium Trading Education",
+            "Thousands of Chart Examples",
+            "Structured Learning",
+            "Built for Serious Traders",
+          ].map((t) => (
+            <span
+              key={t}
+              className="text-[11px] tracking-[0.22em] text-muted-foreground uppercase"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3 — WHY */}
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+        <SectionHeading
+          eyebrow="The Real Problem"
+          title="Why Most Traders Never Become Consistent"
+        />
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {[
+            {
+              icon: Compass,
+              title: "Confusion",
+              body: "Overcomplicated strategies. Indicators layered on indicators until the chart says nothing at all.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Poor Risk Management",
+              body: "Large unnecessary losses. No defined invalidation, no position sizing rule, no ceiling on damage.",
+            },
+            {
+              icon: Target,
+              title: "No Process",
+              body: "Random entries and exits. Every decision made from scratch, so nothing can ever be reviewed or improved.",
+            },
+          ].map((c) => (
+            <article key={c.title} className="panel p-8">
+              <c.icon className="size-7 text-gold" strokeWidth={1.4} />
+              <h3 className="mt-6 text-2xl">{c.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mx-auto mt-14 max-w-2xl text-center font-display text-2xl leading-snug sm:text-3xl">
+          Trendline Precision teaches{" "}
+          <span className="text-gold-gradient">one structured process</span> from analysis to
+          execution.
+        </p>
+      </section>
+
+      {/* SECTION 4 — INSIDE THE BOOK */}
+      <section className="border-y border-border bg-ink/50">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+          <SectionHeading
+            eyebrow="Page Previews"
+            title="Inside The Book"
+            lead="Professional TradingView-style charts, annotated trendlines, support and resistance, exercises, reader challenges and professional tips — typeset like a textbook, not a slide deck."
+          />
+          <div className="mt-14 panel overflow-hidden p-3">
+            <img
+              src={insideSpread}
+              alt="Open book spread showing annotated trendline, support and resistance chart examples"
+              width={1408}
+              height={1008}
+              loading="lazy"
+              className="w-full rounded-md"
+            />
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                n: "Chapter 05",
+                t: "Drawing Trendlines With Precision",
+                b: "Anchor points, slope validation and the difference between a line that holds and a line you forced.",
+              },
+              {
+                n: "Chapter 07",
+                t: "Support & Resistance Zones",
+                b: "Zones over lines, reaction quality, and how to grade a level before price arrives.",
+              },
+              {
+                n: "Chapter 13",
+                t: "Position Sizing & Risk",
+                b: "Fixed fractional sizing, invalidation-first stops, and worked examples with exercises.",
+              },
+            ].map((c) => (
+              <article key={c.n} className="panel p-7">
+                <p className="eyebrow">{c.n}</p>
+                <h3 className="mt-3 text-xl">{c.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{c.b}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TECHNOLOGY */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-        <SectionHead
-          eyebrow="Technology"
-          heading="We choose the stack that fits your business."
-          body="We are not a reseller for one platform. Tooling is selected per client, based on your systems, budget and compliance needs."
+      {/* SECTION 5 — WHAT YOU'LL LEARN */}
+      <section id="learn" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+        <SectionHeading
+          eyebrow="18 Chapters"
+          title="What You'll Learn"
+          lead="A linear curriculum. Each chapter builds on the last, ending with the complete execution process."
         />
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {techStack.map((group, i) => (
-            <Reveal key={group.category} delay={i * 50} className="glass glass-hover p-6">
-              <p className="eyebrow">{group.category}</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-lg border border-border bg-secondary/60 px-2.5 py-1.5 text-xs"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
+          {chapters.map((c, i) => (
+            <article
+              key={c}
+              className="panel flex items-center gap-4 p-5 transition-colors hover:border-gold/40"
+            >
+              <span className="grid size-10 shrink-0 place-items-center rounded-md border border-gold/35 font-display text-sm text-gold">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="min-w-0 text-sm">{c}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* TRUST */}
-      <section className="border-y border-border bg-ink/70">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-          <SectionHead
-            eyebrow="Governance"
-            heading="Automation with humans in control."
-            body="We don't believe every business decision should be delegated to AI. We design systems with appropriate rules, permissions, monitoring and human approval where necessary."
+      {/* SECTION 6 — STUDENT STORIES */}
+      <section id="stories" className="border-y border-border bg-ink/50">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+          <SectionHeading
+            eyebrow="Reader Feedback"
+            title="Student Stories"
+            lead="Genuine reader feedback on chart analysis and learning experience."
           />
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {trustPillars.map((p, i) => (
-              <Reveal key={p.title} delay={i * 40} className="glass glass-hover p-5">
-                <ShieldCheck className="size-5 text-teal" />
-                <h3 className="mt-4 text-base">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              </Reveal>
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <article key={t.name} className="panel p-7">
+                <div className="flex min-w-0 items-center gap-4">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-full border border-gold/40 bg-secondary font-display text-lg text-gold">
+                    {t.initials}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold">{t.name}</p>
+                    <p className="truncate text-xs tracking-[0.16em] text-muted-foreground uppercase">
+                      {t.country}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">“{t.quote}”</p>
+                <div className="hairline my-5" />
+                <p className="flex items-start gap-2 text-xs text-gold">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
+                  {t.detail}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-16">
+            <p className="eyebrow text-center">Shared With Permission</p>
+            <h3 className="mt-3 text-center text-2xl sm:text-3xl">
+              Reader charts &amp; study progress
+            </h3>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <figure
+                  key={i}
+                  className="panel relative aspect-4/3 overflow-hidden text-gold/70"
+                >
+                  <div className="absolute inset-0 grid-chart opacity-60" />
+                  <ChartBackdrop className="absolute inset-0 h-full w-full p-3" />
+                  <figcaption className="absolute bottom-3 left-4 text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                    Reader annotation {String(i + 1).padStart(2, "0")}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
+              Individual trading outcomes vary. Testimonials and submitted charts reflect personal
+              experiences and are not a promise of future results.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7 — TOOLKIT */}
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+        <SectionHeading
+          eyebrow="Everything Included"
+          title="The Complete Trader's Toolkit"
+          lead="Six pieces of material designed as one system — presented as a boxed premium set."
+        />
+        <div className="mt-12">
+          <img
+            src={toolkit}
+            alt="Boxed set of the book, pattern handbook, trading journal, practice plan, checklist and mistakes guide"
+            width={1408}
+            height={912}
+            loading="lazy"
+            className="mx-auto w-full max-w-4xl"
+          />
+        </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: BookOpen, t: "The Book", b: "18 chapters, fully annotated chart examples." },
+            { icon: LineChart, t: "The Pattern Handbook", b: "Reference sheets for structure and patterns." },
+            { icon: NotebookPen, t: "Trading Journal", b: "Templates for logging and reviewing decisions." },
+            { icon: Target, t: "Practice Plan", b: "A weekly drill schedule for chart study." },
+            { icon: ClipboardCheck, t: "Checklist", b: "Pre-trade criteria you confirm before acting." },
+            { icon: ShieldCheck, t: "Common Mistakes Guide", b: "The errors that quietly undo good analysis." },
+          ].map((c) => (
+            <article key={c.t} className="panel flex items-start gap-4 p-6">
+              <c.icon className="mt-1 size-5 shrink-0 text-gold" strokeWidth={1.5} />
+              <div className="min-w-0">
+                <h3 className="text-lg">{c.t}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{c.b}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 8 — WHO IT'S FOR */}
+      <section className="border-y border-border bg-ink/50">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28">
+          <SectionHeading eyebrow="Right Fit" title="Who This Book Is For" />
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                t: "Beginner",
+                b: "You want a serious foundation instead of scattered videos, and you'd rather learn the market properly the first time.",
+              },
+              {
+                t: "Intermediate",
+                b: "You understand the concepts but your execution is inconsistent. You need one process and a review loop.",
+              },
+              {
+                t: "Self-Taught Trader",
+                b: "You've built knowledge in fragments. This organises it into a single structured system end to end.",
+              },
+            ].map((c, i) => (
+              <article key={c.t} className="panel p-8">
+                <p className="eyebrow">0{i + 1}</p>
+                <h3 className="mt-4 text-2xl">{c.t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.b}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-5 py-20 sm:px-8 sm:py-24">
-        <SectionHead eyebrow="FAQ" heading="Questions business owners ask us." />
-        <Reveal className="mt-12">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((f, i) => (
-              <AccordionItem key={f.q} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-base">{f.q}</AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Reveal>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="relative overflow-hidden border-t border-border bg-ink">
-        <div className="pointer-events-none absolute inset-0 bg-[var(--gradient-hero)]" />
-        <div className="relative mx-auto max-w-3xl px-5 py-24 text-center sm:px-8">
-          <Reveal>
-            <h2 className="text-3xl sm:text-4xl">Find out what your business could automate.</h2>
-            <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted-foreground">
-              Book a free 30-minute automation audit. We'll identify repetitive workflows, estimate
-              the opportunity and recommend where AI can actually create value.
-            </p>
-            <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <Link to="/contact" className="btn-brand">
-                Book My Free Automation Audit
-                <ArrowRight className="size-4" />
-              </Link>
-              <Link to="/services" className="btn-ghost-lux">
-                See Our Services
-              </Link>
-            </div>
-          </Reveal>
+      {/* SECTION 9 — FAQ */}
+      <section className="mx-auto max-w-3xl px-5 py-20 sm:px-8 md:py-28">
+        <SectionHeading eyebrow="Questions" title="Frequently Asked" />
+        <div className="mt-12 divide-y divide-border panel px-2">
+          {faqs.map((f) => (
+            <details key={f.q} className="group px-5 py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+                <span className="min-w-0 font-display text-lg">{f.q}</span>
+                <span className="shrink-0 text-gold transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
         </div>
       </section>
-    </div>
+
+      {/* SECTION 10 — FINAL CTA */}
+      <section id="buy" className="relative isolate overflow-hidden border-t border-border bg-ink">
+        <div className="absolute inset-0 -z-10 grid-chart opacity-50" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-2/3 text-gold opacity-20">
+          <ChartBackdrop className="h-full w-full" />
+        </div>
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[0.8fr_1fr]">
+          <div className="relative">
+            <div className="absolute inset-8 -z-10 rounded-full bg-gold/15 blur-3xl" />
+            <img
+              src={bookFloat}
+              alt="Trendline Precision hardcover edition"
+              width={912}
+              height={1104}
+              loading="lazy"
+              className="mx-auto w-64 drop-shadow-2xl lg:w-full lg:max-w-sm"
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl leading-tight sm:text-4xl md:text-5xl">
+              The market will always offer another opportunity.
+            </h2>
+            <p className="mt-5 font-display text-2xl text-gold-gradient sm:text-3xl">
+              Will you be ready for it?
+            </p>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Complete digital edition · 18 chapters · Toolkit included ·{" "}
+              <span className="text-foreground">$55 one-time</span>
+            </p>
+            <a href="#buy" className="btn-gold mt-8 w-full sm:w-auto">
+              Get Trendline Precision
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+          <div className="grid gap-8 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div className="min-w-0">
+              <div className="flex items-center gap-3">
+                <LineChart className="size-4 shrink-0 text-gold" strokeWidth={1.5} />
+                <span className="font-display text-base tracking-wide">Trendline Precision</span>
+              </div>
+              <p className="mt-4 max-w-xl text-xs leading-relaxed text-muted-foreground">
+                Trendline Precision publishes educational material on technical analysis and trading
+                process. Nothing on this page is financial advice, and no trading result is promised
+                or implied. Trading involves risk of loss.
+              </p>
+            </div>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-[0.18em] text-muted-foreground uppercase">
+              <a href="#learn" className="hover:text-gold">
+                Curriculum
+              </a>
+              <a href="#stories" className="hover:text-gold">
+                Stories
+              </a>
+              <a href="#buy" className="hover:text-gold">
+                Buy
+              </a>
+            </nav>
+          </div>
+          <div className="hairline my-8" />
+          <p className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+            © {new Date().getFullYear()} Trendline Precision
+          </p>
+        </div>
+      </footer>
+    </main>
   );
 }
