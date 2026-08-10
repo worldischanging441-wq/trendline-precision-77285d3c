@@ -487,16 +487,7 @@ function Index() {
           title="The Complete Trader's Toolkit"
           lead="Five bonus resources designed to help you practise, review, and apply the Trendline Precision system."
         />
-        <div className="mt-12">
-          <img
-            src={toolkit}
-            alt="Boxed set of the book, pattern handbook, trading journal, practice plan, checklist and mistakes guide"
-            width={1408}
-            height={912}
-            loading="lazy"
-            className="mx-auto w-full max-w-4xl"
-          />
-        </div>
+        
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
